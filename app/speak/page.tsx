@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { FeatureGrid } from "@/components/launchpoint/feature-grid";
-import { SectionIntro } from "@/components/launchpoint/section-intro";
 import { PageHero } from "@/components/page-hero";
 import { SPEAK_FORM_URL, STOCK_IMAGES } from "@/lib/constants";
 
@@ -43,6 +42,8 @@ export default function SpeakPage() {
         description="If you are selected, you receive a full complimentary ticket and a spot on the agenda — keynotes, fireside chats, short talks, and panel discussions with leaders across technology, investment, and enterprise."
         image={STOCK_IMAGES.speakPanel}
         imageAlt="Panel discussion at Broken VC Summit"
+        ctaHref={SPEAK_FORM_URL}
+        ctaLabel="Apply to speak"
       />
       <section className="py-4">
         <Container>

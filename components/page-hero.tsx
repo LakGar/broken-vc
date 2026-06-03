@@ -15,6 +15,8 @@ type PageHeroProps = {
   children?: React.ReactNode;
   footer?: React.ReactNode;
   className?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
 };
 
 export function PageHero({
@@ -29,6 +31,8 @@ export function PageHero({
   priority = false,
   children,
   className,
+  ctaHref = "/register#tickets",
+  ctaLabel = "Apply here",
 }: PageHeroProps) {
   return (
     <section
@@ -67,10 +71,12 @@ export function PageHero({
                 {title}
               </h1>
               <a
-                href="/register#tickets"
+                href={ctaHref}
                 className="lp-btn-primary"
+                target={ctaHref.startsWith("http") ? "_blank" : undefined}
+                rel={ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
               >
-                Apply here
+                {ctaLabel}
               </a>
             </div>
 

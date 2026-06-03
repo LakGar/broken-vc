@@ -14,7 +14,6 @@ type SponsorTierCardProps = {
 };
 
 export function SponsorTierCard({
-  badge,
   price,
   title,
   subtitle,

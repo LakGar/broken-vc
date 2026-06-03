@@ -162,7 +162,7 @@ export const confirmedSpeakers: Speaker[] = [
     bio: "Bootstrapped to 4,000+ Engineers | YPO & WEF",
     linkedin: "https://www.linkedin.com/in/nachodemarco/",
     image:
-      "https://images.unsplash.com/photo-1519085360755-af0119f7cbe7?w=400&q=80",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
     confirmed: true,
   },
 ];
@@ -173,7 +173,7 @@ export const ticketTiers = [
     badge: "Free for Approved Allocators",
     label: "Approved Allocators",
     price: "Free",
-    title: "LP Investors",
+    title: "LP, Angels and Family Offices",
     description:
       "For approved LP investors. Attendance is curated and requires prior written approval.",
     audience:
@@ -184,7 +184,7 @@ export const ticketTiers = [
       "Networking lunch",
       "Cocktail party (Capital After Hours)",
     ],
-    cta: "Apply for Invitation",
+    cta: "Apply Now",
     variant: "navy" as const,
   },
   {
@@ -194,7 +194,7 @@ export const ticketTiers = [
     price: "$495",
     title: "GPs & VC Firms",
     description: "For verified accredited investors including VCs and GPs.",
-    audience: "Verified accredited investors such as VCs and GPs.",
+    audience: "",
     benefits: [
       "All sessions & keynotes",
       "Roundtable workshops",
@@ -218,7 +218,7 @@ export const ticketTiers = [
       "Networking with LPs & family offices",
       "Open bar & canapés",
     ],
-    cta: "Get Tickets",
+    cta: "Apply Now",
     variant: "white" as const,
   },
   {
@@ -298,7 +298,7 @@ export const sponsorshipTiers = [
   },
   {
     badge: "Standard",
-    price: "$1,495",
+    price: "$2,495",
     title: "Bronze ",
     benefits: [
       "Logo placement (website + materials)",

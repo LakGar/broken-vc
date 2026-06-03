@@ -37,7 +37,7 @@ export default function AttendPage() {
                 {EVENT_LOCATION_NOTE}
               </p>
               <Link href="/register#tickets" className="lp-btn-primary mt-5 w-full">
-                Apply for invitation
+                View tickets here
               </Link>
             </div>
           </div>

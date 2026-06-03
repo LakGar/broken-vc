@@ -12,6 +12,7 @@ const ANGEL_LAUNCH_EVENTS_URL = "https://www.angellaunch.com";
 
 type Producer = {
   org: string;
+  website: string;
   logo: string;
   logoAlt: string;
   logoDark?: boolean;
@@ -28,6 +29,7 @@ type Producer = {
 const producers: Producer[] = [
   {
     org: "Expert Dojo",
+    website: "https://expertdojo.com",
     logo: STOCK_IMAGES.expertDojoLogo,
     logoAlt: "Expert Dojo logo",
     logoDark: true,
@@ -45,6 +47,7 @@ const producers: Producer[] = [
   },
   {
     org: "Angel Launch",
+    website: "https://www.angellaunch.com",
     logo: STOCK_IMAGES.angelLaunchLogo,
     logoAlt: "Angel Launch logo",
     heading: "About Angel Launch",
@@ -58,21 +61,6 @@ const producers: Producer[] = [
     email: "zahava@angellaunch.com",
     image: STOCK_IMAGES.organizerZahava,
     eventsLink: ANGEL_LAUNCH_EVENTS_URL,
-  },
-];
-
-const contacts = [
-  {
-    org: "Angel Launch",
-    name: "Zahava Stroud",
-    phone: "310 621 6850",
-    email: "zahava@angellaunch.com",
-  },
-  {
-    org: "Expert Dojo",
-    name: "Brian Mac Mahon",
-    phone: "310 745 9580",
-    email: "brian@expertdojo.com",
   },
 ];
 
@@ -109,7 +97,13 @@ export default function AboutPage() {
                       className="size-full object-cover"
                     />
                   </div>
-                  <div className={`flex h-16 w-full max-w-[170px] items-center justify-center overflow-hidden rounded-md p-3 ${producer.logoDark ? "bg-black" : "bg-white"}`}>
+                  <Link
+                    href={producer.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${producer.org}`}
+                    className={`flex h-16 w-full max-w-[170px] items-center justify-center overflow-hidden rounded-md p-3 ${producer.logoDark ? "bg-black" : "bg-white"}`}
+                  >
                     <Image
                       src={producer.logo}
                       alt={producer.logoAlt}
@@ -118,11 +112,45 @@ export default function AboutPage() {
                       unoptimized
                       className="max-h-full w-full object-contain"
                     />
+                  </Link>
+                  <div className="w-full max-w-[190px] border-t border-white/15 pt-4 text-center text-xs text-white/75">
+                    <p className="font-display text-sm font-medium text-white">
+                      {producer.name}
+                    </p>
+                    <a
+                      href={`tel:${producer.phone.replace(/\s/g, "")}`}
+                      className="mt-2 block hover:text-white hover:underline"
+                    >
+                      {producer.phone}
+                    </a>
+                    <a
+                      href={`mailto:${producer.email}`}
+                      className="mt-1 block break-words text-white/85 hover:text-white hover:underline"
+                    >
+                      {producer.email}
+                    </a>
+                    <Link
+                      href={producer.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex text-xs font-semibold uppercase tracking-wide text-white underline underline-offset-4 hover:text-white/80"
+                    >
+                      Visit website
+                    </Link>
                   </div>
                 </div>
 
                 <div className="flex flex-col justify-center p-6 lg:p-8">
-                  <h2 className="lp-heading-section text-2xl">{producer.heading}</h2>
+                  <h2 className="lp-heading-section text-2xl">
+                    <Link
+                      href={producer.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[var(--accent)]"
+                    >
+                      {producer.heading}
+                    </Link>
+                  </h2>
                   <div className="mt-4 space-y-3">
                     {producer.paragraphs.map((paragraph, i) => (
                       <p
@@ -151,36 +179,6 @@ export default function AboutPage() {
                 </div>
               </article>
             ))}
-          </div>
-
-          <div className="lp-card mt-6 p-6 md:p-8">
-            <h2 className="lp-heading-section text-2xl">Contact Us</h2>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2">
-              {contacts.map((contact) => (
-                <div key={contact.org} className="border-t border-border/70 pt-6 first:border-0 first:pt-0 sm:first:border-t sm:first:pt-6">
-                  <p className="font-display text-lg font-medium text-[var(--navy)]">
-                    {contact.org}
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">{contact.name}</p>
-                  <p className="mt-3 text-sm">
-                    <a
-                      href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                      className="font-medium text-[var(--navy)] hover:underline"
-                    >
-                      {contact.phone}
-                    </a>
-                  </p>
-                  <p className="text-sm">
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="text-[var(--navy)]/80 hover:text-[var(--navy)] hover:underline"
-                    >
-                      {contact.email}
-                    </a>
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </Container>
       </section>

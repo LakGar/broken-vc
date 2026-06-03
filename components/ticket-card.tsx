@@ -62,17 +62,32 @@ export function TicketCard({
           {price}
         </span>
         {price !== "Free" && price !== "Complimentary" && (
-          <span className={cn("mb-2 text-sm", isNavy ? "text-white/60" : "text-muted-foreground")}>
+          <span
+            className={cn(
+              "mb-2 text-sm",
+              isNavy ? "text-white/60" : "text-muted-foreground",
+            )}
+          >
             / ticket
           </span>
         )}
       </div>
 
-      <h3 className={cn("mt-4 font-display text-xl font-medium", isNavy ? "text-white" : "")}>
+      <h3
+        className={cn(
+          "mt-4 font-display text-xl font-medium",
+          isNavy ? "text-white" : "",
+        )}
+      >
         {title}
       </h3>
       {subtitle && (
-        <p className={cn("mt-1 text-sm", isNavy ? "text-white/75" : "text-muted-foreground")}>
+        <p
+          className={cn(
+            "mt-1 text-sm",
+            isNavy ? "text-white/75" : "text-muted-foreground",
+          )}
+        >
           {subtitle}
         </p>
       )}
@@ -84,15 +99,33 @@ export function TicketCard({
       >
         {description}
       </p>
-      <p className={cn("mt-4 text-sm", isNavy ? "text-white/65" : "text-muted-foreground")}>
+      <p
+        className={cn(
+          "mt-4 text-sm",
+          isNavy ? "text-amber-200" : "text-muted-foreground",
+        )}
+      >
         {audience}
       </p>
 
-      <ul className={cn("mt-6 flex-1 space-y-2.5 border-t pt-6 text-sm", isNavy ? "border-white/15" : "border-border")}>
+      <ul
+        className={cn(
+          "mt-6 flex-1 space-y-2.5 border-t pt-6 text-sm",
+          isNavy ? "border-white/15" : "border-border",
+        )}
+      >
         {benefits.map((b) => (
           <li key={b} className="flex gap-2 leading-relaxed">
-            <span className={isNavy ? "text-[var(--accent)]" : "text-[var(--navy)]"}>✓</span>
-            <span className={isNavy ? "text-white/90" : "text-[var(--navy)]/80"}>{b}</span>
+            <span
+              className={isNavy ? "text-[var(--accent)]" : "text-[var(--navy)]"}
+            >
+              ✓
+            </span>
+            <span
+              className={isNavy ? "text-white/90" : "text-[var(--navy)]/80"}
+            >
+              {b}
+            </span>
           </li>
         ))}
       </ul>

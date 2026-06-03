@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Speaker } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -9,41 +8,36 @@ type SpeakerCardProps = {
 
 export function SpeakerCard({ speaker }: SpeakerCardProps) {
   const isTba = !speaker.confirmed;
+  const detailLine = speaker.company
+    ? `${speaker.title} · ${speaker.company}`
+    : speaker.title;
 
   return (
     <article
       className={cn(
-        "lp-card w-full max-w-[200px] overflow-hidden p-0",
-        isTba && "border-dashed opacity-70",
+        "group overflow-hidden rounded-lg border border-border/80 bg-white shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)]",
+        isTba && "border-dashed",
       )}
     >
-      <div className="relative aspect-[4/5] bg-white">
+      <div className="relative aspect-[4/5] bg-[var(--navy)]">
         <Image
           src={speaker.image}
-          alt={isTba ? "Speaker TBA" : speaker.name}
+          alt={isTba ? "Speaker to be announced" : speaker.name}
           fill
-          className={cn("object-cover", isTba && "opacity-30 grayscale")}
-          sizes="200px"
+          className={cn(
+            "object-cover transition-transform duration-300 group-hover:scale-[1.04]",
+            isTba && "opacity-35 grayscale",
+          )}
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 180px"
         />
       </div>
-      <div className="p-4">
-        <h3 className="font-display text-sm font-medium text-[var(--navy)]">{speaker.name}</h3>
-        <p className="mt-1 text-xs text-muted-foreground">{speaker.title}</p>
-        {speaker.company && (
-          <p className="text-[11px] text-muted-foreground/80">@ {speaker.company}</p>
-        )}
-        {speaker.linkedin && speaker.confirmed ? (
-          <Link
-            href={speaker.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-block text-[11px] font-semibold text-[var(--accent)] hover:underline"
-          >
-            LinkedIn →
-          </Link>
-        ) : (
-          <span className="mt-3 inline-block text-[10px] text-muted-foreground">Coming soon</span>
-        )}
+      <div className="p-3">
+        <h3 className="font-display text-sm font-semibold leading-tight text-[var(--navy)]">
+          {speaker.name}
+        </h3>
+        <p className="mt-1 truncate text-xs leading-snug text-muted-foreground">
+          {detailLine}
+        </p>
       </div>
     </article>
   );

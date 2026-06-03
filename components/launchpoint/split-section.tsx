@@ -26,6 +26,9 @@ export function SplitSection({
   children,
   className,
 }: SplitSectionProps) {
+  const primaryIsExternal = primaryCta?.href.startsWith("http");
+  const secondaryIsExternal = secondaryCta?.href.startsWith("http");
+
   return (
     <section className={cn("page-section max-w-full", className)}>
       <Container>
@@ -41,12 +44,22 @@ export function SplitSection({
             {(primaryCta || secondaryCta) && (
               <div className="mt-8 flex flex-wrap gap-4">
                 {primaryCta && (
-                  <Link href={primaryCta.href} className="lp-btn-primary">
+                  <Link
+                    href={primaryCta.href}
+                    className="lp-btn-primary"
+                    target={primaryIsExternal ? "_blank" : undefined}
+                    rel={primaryIsExternal ? "noopener noreferrer" : undefined}
+                  >
                     {primaryCta.label}
                   </Link>
                 )}
                 {secondaryCta && (
-                  <Link href={secondaryCta.href} className="lp-btn-outline">
+                  <Link
+                    href={secondaryCta.href}
+                    className="lp-btn-outline"
+                    target={secondaryIsExternal ? "_blank" : undefined}
+                    rel={secondaryIsExternal ? "noopener noreferrer" : undefined}
+                  >
                     {secondaryCta.label}
                   </Link>
                 )}

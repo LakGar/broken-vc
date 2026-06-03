@@ -8,18 +8,32 @@ export function CrisisSection() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="lp-heading-section">A System of Zombie Capital.</h2>
+            <h2 className="lp-heading-section">
+              No Longer a System of Doomed Capital.
+            </h2>
             <p className="mt-4 font-display text-xl font-semibold leading-snug text-[var(--navy)] sm:text-2xl"></p>
             <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
               <p>
-                Venture Capital has become a graveyard of misaligned incentives,
-                inflated valuations, and predatory fee structures.
+                Broken VC Conference will bring together leading fund allocators
+                from around the country to look at the future of how Silicon
+                Valley should operate in this new world of AI—with a focus on
+                LPs, family offices, and angels. The world is changing fast and
+                Silicon Valley is not keeping up.
               </p>
               <p>
-                We are witnessing the death of the traditional 2/20 model. The
-                industry is haunted by &ldquo;zombie&rdquo; funds that persist
-                solely on management fees while failing to return meaningful
-                capital to LPs.
+                This is a very real and needed conversation amongst serious
+                capital allocators to change the face of venture capital
+                investment for better returns and a better world. We gather key
+                financial decision-makers who determine where innovation
+                happens, which markets grow, and which ecosystems thrive.
+              </p>
+              <p>
+                Don&apos;t miss this exceptional opportunity to develop
+                relationships with global investors looking for investment
+                opportunities in tech and related markets. Your team will
+                develop business relationships with high-net-worth investors to
+                rethink how capital is deployed—toward more efficient models,
+                stronger returns, and long-term economic impact.
               </p>
             </div>
           </div>
